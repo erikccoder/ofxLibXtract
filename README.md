@@ -17,3 +17,5 @@ It should be that simple
 
 But results are not verified. 18/12/13
 
+
+tested with wavetable
