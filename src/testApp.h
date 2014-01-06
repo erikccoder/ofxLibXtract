@@ -8,15 +8,7 @@
 #include "ofxLibXtract.h"
 
 
-#define BLOCKSIZE 1024 /* Jamie Bullock's FIX: this should be dynamic - somehow */
-#define NYQUIST 22050.0f
 
-#define HALF_BLOCKSIZE BLOCKSIZE >> 1
-#define SAMPLERATE 44100
-#define PERIOD 102
-#define MFCC_FREQ_BANDS 13
-#define MFCC_FREQ_MIN 20
-#define MFCC_FREQ_MAX 20000
 
 class testApp : public ofBaseApp{
 	
@@ -25,7 +17,9 @@ class testApp : public ofBaseApp{
 		void setup();
 		void update();
 		void draw();
-		
+		void drawLibxtractInfo();
+		void oldDraw();
+	
 		void keyPressed(int key);
 		void keyReleased(int key);
 		void mouseMoved(int x, int y );
@@ -53,11 +47,11 @@ class testApp : public ofBaseApp{
 		
 		ofSoundStream soundStream;
 	
-		void xtractTest();
-		int xtractFeature;
+		//void xtractTest();
+		//int xtractFeature;
 	
-		xtract_mel_filter *mf;
-	    xtract_function_descriptor_t *fd;
+		//xtract_mel_filter *mf;
+	    //xtract_function_descriptor_t *fd;
 
 		ofxLibXtract ofxlibx;
 };

@@ -16,6 +16,7 @@
 #include <deque>
 
 #define BLOCKSIZE 1024 /* Jamie Bullock's FIX: this should be dynamic - somehow */
+#define HOPSIZE 512 
 #define NYQUIST 22050.0f
 
 #define HALF_BLOCKSIZE BLOCKSIZE >> 1
@@ -48,7 +49,7 @@ public:
 	
 	//void fill_wavetable(const float frequency, waveform_type type);
 	
-	void copyAudioToBuffer(float* audioIn, int chunkSize);
+	bool copyAudioToBuffer(float* audioIn, int chunkSize);
 	void calculateFeatures(float* audioIn, int chunkSize);
 	void makeWindowedAudio();
 	void calculateSpectrum();
@@ -61,6 +62,10 @@ public:
 	
 	double audioArray[BLOCKSIZE];
 	double spectrum[BLOCKSIZE];
+	
+	double peaks[BLOCKSIZE];
+	
+	
 	std::vector<double> mfccs;//[MFCC_FREQ_BANDS];
 	std::deque<double> bufferedAudio;
 
@@ -70,5 +75,7 @@ public:
 	xtract_mel_filter mel_filters;
 	
 	double argd[4];
+	
+	int bufferSamplesCopied;
 };
 #endif
