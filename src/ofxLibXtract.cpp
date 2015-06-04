@@ -10,7 +10,7 @@
 #include "ofxLibXtract.h"
 
 
-#include "xtract/libxtract.h"
+//#include "xtract/libxtract.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -19,7 +19,7 @@
 #define M_PI 3.14159265358979323846264338327
 #endif
 
-const bool printingOn = false;//true;//false;
+const bool printingOn = true;//true;//false;
 
 double wavetable[BLOCKSIZE];
 typedef enum waveform_type_
@@ -263,6 +263,11 @@ void ofxLibXtract::calculateMFCCs(){
 			printf("coeff: %f\n", mfccs[n]);
 		}
 	}
+    for(n = 0; n < MFCC_FREQ_BANDS; ++n)
+    {
+        this->mfccs[n] = mfccs[n];
+    }
+
 }
 
 
